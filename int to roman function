@@ -1,0 +1,25 @@
+import sys
+def int_to_Roman(num):
+    int_value = [
+        1000, 900, 500, 400,
+        100, 90, 50, 40,
+         10, 9, 5, 4, 1
+         ]
+    roman_value = [
+        "M", "CM", "D", "CD",
+        "C", "XC", "L", "XL",
+        "X", "IX", "V", "IV",
+        "I"
+        ]
+    roman_num = ''
+    i = 0
+    if num > 3999 or num < 1 :
+     print ("number out of range.")
+     sys.exit(1)
+    while  num > 0 :
+         for _ in range(num // int_value[i]):
+           roman_num += roman_value[i]
+           num -= int_value[i]
+
+         i += 1  
+    return roman_num
