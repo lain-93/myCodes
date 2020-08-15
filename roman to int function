@@ -1,0 +1,18 @@
+def roman_to_int(num):
+   roman_value = {'M': 1000, 'D':  500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1 }
+   i = 0
+   int_value = 0
+   while i < len(num):
+     num1 = roman_value[num[i]]
+     if (i+1 < len(num)):
+       num2 = roman_value[num[i+1]]
+       if roman_value[num[i]] >= roman_value[num[i+1]]:
+         int_value += num1
+         i += 1
+       else:
+         int_value += num2 - num1
+         i += 2
+     else:
+       int_value += num1
+       i += 1
+   return int_value
